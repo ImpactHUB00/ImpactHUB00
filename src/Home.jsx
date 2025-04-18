@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import logo from './image.jpg';
 import './App.css';
+import logos from './image.png';
 import Stack from 'react-bootstrap/Stack';
 const Footer = () => {
   return <div className="chenar-jos">Contact: impacthub00@gmail.com</div>;
@@ -10,7 +11,7 @@ export default function Home() {
     return (
         <div className="App">
           <div className="content">
-             <div className="chenar">
+          <div className="chenar">
       
       <Stack direction="horizontal" gap={1}>
       <div className="text-login">
@@ -21,7 +22,12 @@ export default function Home() {
       </Link>
 
     </div>
-    <div className="p-2">ImpactHUB</div>
+    <div class="header-titlu-poza">
+    <div className="p-2">ImpactHUB</div> 
+    <img src={logos} className="image-logo" alt="logos" />
+</div>
+    
+    
       </Stack>
         </div>
            

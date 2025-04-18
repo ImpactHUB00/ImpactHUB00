@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Stack from 'react-bootstrap/Stack';
-
+import logos from './image.png';
 export default function PageTwo() {
   
   return (
@@ -39,7 +39,10 @@ export default function PageTwo() {
       </Link>
 
     </div>
-    <div className="p-2">ImpactHUB</div>
+    <div class="header-titlu-poza">
+    <div className="p-2">ImpactHUB</div> 
+    <img src={logos} className="image-logo" alt="logos" />
+</div>
       </Stack>
         </div>
         <Link to="/registervol">

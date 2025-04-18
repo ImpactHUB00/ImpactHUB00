@@ -1,6 +1,6 @@
 
 import './App.css';
-
+import logos from './image.png';
 import Stack from 'react-bootstrap/Stack';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home.jsx";
@@ -20,15 +20,17 @@ function App() {
      
       
     <div className="chenar">
-      
-      <Stack direction="horizontal" gap={1}>
+    
+      <Stack direction="horizontal" gap={2}>
       <div className="text-login">
     
       
     
 
     </div>
-    <div className="p-2">ImpactHUB</div>
+    
+    <div className="p-2">ImpactHUB</div> 
+    
       </Stack>
         </div>
         

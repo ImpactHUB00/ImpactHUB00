@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { useState } from 'react';
-
+import logos from './image.png';
 
 
 const counties = [
@@ -102,7 +102,10 @@ const counties = [
 
 
     </div>
-    <div className="p-2">ImpactHUB</div>
+    <div class="header-titlu-poza">
+    <div className="p-2">ImpactHUB</div> 
+    <img src={logos} className="image-logo" alt="logos" />
+</div>
       </Stack>
         </div>
        

@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { useState } from 'react';
-
+import logos from './image.png';
 
 const counties = [
     "Alba", "Arad", "Argeș", "Bacău", "Bihor", "Bistrița-Năsăud", "Botoșani", "Brașov",
@@ -95,7 +95,10 @@ export default function Register() {
 
 
     </div>
-    <div className="p-2">ImpactHUB</div>
+    <div class="header-titlu-poza">
+    <div className="p-2">ImpactHUB</div> 
+    <img src={logos} className="image-logo" alt="logos" />
+</div>
       </Stack>
         </div>
        
