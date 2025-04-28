@@ -6,11 +6,8 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { useState } from 'react';
-<<<<<<< HEAD
 import logos from './image.png';
 
-=======
->>>>>>> 7c179afb390bec65f3201e5c8be119f5783c9d75
 const counties = [
     "Alba", "Arad", "Argeș", "Bacău", "Bihor", "Bistrița-Năsăud", "Botoșani", "Brașov",
     "Brăila", "Buzău", "Caraș-Severin", "Călărași", "Cluj", "Constanța", "Covasna", "Dâmbovița",
@@ -81,7 +78,9 @@ export default function Register() {
         </Col>
       </Row>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
-    <Button type="submit">Submit form</Button>
+      <Link to="/mainpage">
+      <Button type="submit">Submit</Button>
+      </Link>
     </Form>
     </Form>
     
@@ -98,14 +97,10 @@ export default function Register() {
 
 
     </div>
-<<<<<<< HEAD
     <div class="header-titlu-poza">
     <div className="p-2">ImpactHUB</div> 
     <img src={logos} className="image-logo" alt="logos" />
 </div>
-=======
-    <div className="p-2">ImpactHUB</div>
->>>>>>> 7c179afb390bec65f3201e5c8be119f5783c9d75
       </Stack>
         </div>
        

@@ -33,16 +33,18 @@
     display: flex; 
     margin-left: 1500px;
 }
-<<<<<<< HEAD
 .image-logo{
   width: 70px;           
   height: auto; 
   
   margin-left: 20px;
 }
-=======
-
->>>>>>> 7c179afb390bec65f3201e5c8be119f5783c9d75
+.image-plus{
+  width: 100px;           
+  height: auto; 
+  
+  
+}
 .image-text-container {
   display: flex; 
    align-items: center;
@@ -67,7 +69,7 @@
 .text-content-title-login{
   font-size: 30px;
   color: #BD615B;
-  border-bottom: 30px solid #FFF1E5;
+  border-bottom: 25px solid #FFF1E5;
  
 }
 .text-content{
@@ -82,7 +84,7 @@
   
 }
 .image-text-container-img {
-  max-width: 70%; 
+  max-width: 40%; 
     height: auto;
     margin-left: 100px;
 }
@@ -152,12 +154,39 @@ body {
     
     
 }
-<<<<<<< HEAD
 
 .header-titlu-poza {
   display: flex;          
   align-items: center;    
   gap: 10px;             
 }
-=======
->>>>>>> 7c179afb390bec65f3201e5c8be119f5783c9d75
+.sidebar {
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  position: static;
+  left: 20px;
+  flex-direction: column;
+  top: 100px; /* Adjust based on your layout */
+  display: flex;
+  align-items: center;
+  justify-content: vertical;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-left: 30px;
+}
+
+.add-button {
+  padding: 10px 20px;
+  background-color: #BD615B;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 30px;
+}
+
+.add-button:hover {
+  background-color: #3A537D;
+}
