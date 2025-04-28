@@ -1,6 +1,10 @@
 
 import './App.css';
+<<<<<<< HEAD
+import logos from './image.png';
+=======
 
+>>>>>>> 7c179afb390bec65f3201e5c8be119f5783c9d75
 import Stack from 'react-bootstrap/Stack';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home.jsx";
@@ -20,15 +24,26 @@ function App() {
      
       
     <div className="chenar">
+<<<<<<< HEAD
+    
+      <Stack direction="horizontal" gap={2}>
+=======
       
       <Stack direction="horizontal" gap={1}>
+>>>>>>> 7c179afb390bec65f3201e5c8be119f5783c9d75
       <div className="text-login">
     
       
     
 
     </div>
+<<<<<<< HEAD
+    
+    <div className="p-2">ImpactHUB</div> 
+    
+=======
     <div className="p-2">ImpactHUB</div>
+>>>>>>> 7c179afb390bec65f3201e5c8be119f5783c9d75
       </Stack>
         </div>
         
