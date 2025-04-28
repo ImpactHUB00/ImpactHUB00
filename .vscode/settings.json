@@ -15,11 +15,5 @@
             "password": "impacthub2025",
             "connectionTimeout": 30
         }
-<<<<<<< HEAD
-    ],
-    "java.compile.nullAnalysis.mode": "automatic",
-    "java.configuration.updateBuildConfiguration": "interactive"
-=======
     ]
->>>>>>> 7c179afb390bec65f3201e5c8be119f5783c9d75
 }
