@@ -1,10 +1,10 @@
-package ImpactHUB00.src.demo.src.main.java.com.ale.impacthub;
+package com.ale.impacthub;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name="user_organisations")
-public class Organisations{
+@Table(name="volunteering_event")
+public class mainpage{
 
     @Id
     @Column(name="id_org")
@@ -13,6 +13,9 @@ public class Organisations{
 
     @Column(name="description")
     private String description;
+
+    @Column(name="name_event")
+    private String name_event;
     
     @Column(name="id_vol")
     private Long id_vol;
@@ -39,6 +42,14 @@ public class Organisations{
 
     public void setdescription(String description) {
         this.description = description;
+    }
+
+    public String getname_event() {
+        return name_event;
+    }
+
+    public void setname_event(String name_event) {
+        this.name_event = name_event;
     }
 
 

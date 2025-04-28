@@ -1,6 +1,6 @@
-package ImpactHUB00.src.demo.src.main.java.com.ale.impacthub;
+package com.ale.impacthub;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name="user_organisations")

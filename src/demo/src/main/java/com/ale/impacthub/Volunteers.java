@@ -1,7 +1,7 @@
-package ImpactHUB00.src.demo.src.main.java.com.ale.impacthub;
+package com.ale.impacthub;
 
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name="user_volunteers")
@@ -21,7 +21,7 @@ public class Volunteers{
     private String county;
 
     @Column(name="age")
-    private Int age;
+    private int age;
 
     @Column(name="first_name")
     private String first_name;
@@ -59,11 +59,11 @@ public class Volunteers{
     public void setcounty(String county) {
         this.county = county;
     }
-    public Int getage() {
+    public int getage() {
         return age;
     }
 
-    public void setage(Int age) {
+    public void setage(int age) {
         this.age= age;
     }
 
