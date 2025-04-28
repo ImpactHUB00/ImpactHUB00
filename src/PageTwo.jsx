@@ -5,8 +5,17 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Stack from 'react-bootstrap/Stack';
 import logos from './image.png';
+import { useState } from 'react';
 export default function PageTwo() {
-  
+  const [validated, setValidated] = useState(false);
+      const handleSubmit = (event) => {
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }    
+        setValidated(true);
+        };
   return (
     <div>
       <div className="text-content-title-login">
@@ -28,6 +37,11 @@ export default function PageTwo() {
         <Form.Control type="password" placeholder="Password" />
       </FloatingLabel>
       
+      <Form noValidate validated={validated} onSubmit={handleSubmit}>
+    <Link to="/mainpage">
+      <Button type="submit">Login</Button>
+      </Link>
+    </Form>
       <div className="chenar">
       
       <Stack direction="horizontal" gap={1}>
@@ -45,12 +59,16 @@ export default function PageTwo() {
 </div>
       </Stack>
         </div>
+        <div className="text-content-title-login">
+      <h2>If you dont have an account:</h2>
+      </div>
         <Link to="/registervol">
       <Button class="butonlogin">For Volunteers</Button>
       </Link>
       <Link to="/registerorg">
       <Button class="butonlogin">For Organizations</Button>
       </Link>
+      
     </div>
     
   );

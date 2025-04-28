@@ -78,7 +78,9 @@ export default function Register() {
         </Col>
       </Row>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
-    <Button type="submit">Submit form</Button>
+      <Link to="/mainpage">
+      <Button type="submit">Submit</Button>
+      </Link>
     </Form>
     </Form>
     

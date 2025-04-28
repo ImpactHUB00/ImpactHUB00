@@ -1,23 +1,17 @@
 import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import "./App.css";
 import Stack from 'react-bootstrap/Stack';
+import logos from './image.png';
+import React from 'react';
+
+import { useState } from 'react';
+
+
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import { useState } from 'react';
-import logos from './image.png';
-
-
-const counties = [
-    "Alba", "Arad", "Argeș", "Bacău", "Bihor", "Bistrița-Năsăud", "Botoșani", "Brașov",
-    "Brăila", "Buzău", "Caraș-Severin", "Călărași", "Cluj", "Constanța", "Covasna", "Dâmbovița",
-    "Dolj", "Galați", "Giurgiu", "Gorj", "Harghita", "Hunedoara", "Ialomița", "Iași", "Ilfov",
-    "Maramureș", "Mehedinți", "Mureș", "Neamț", "Olt", "Prahova", "Satu Mare", "Sălaj",
-    "Sibiu", "Suceava", "Teleorman", "Timiș", "Tulcea", "Vaslui", "Vâlcea", "Vrancea"
-  ].sort();
-  
-  const formStyle = {
+const formStyle = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -26,7 +20,7 @@ const counties = [
     
   };
   
-  export default function Register() {
+export default function CreateVolForm() {
     const [validated, setValidated] = useState(false);
     const handleSubmit = (event) => {
       const form = event.currentTarget;
@@ -39,43 +33,34 @@ const counties = [
   return (
     <div>
       <div className="text-content-title-login">
-      <h1>Register</h1>
-      <h2>For Organisations</h2>
+      <h1>Make your volunteering opportunity!</h1>
       </div>
-      <FloatingLabel
-        controlId="floatingInput"
-        label="Email address"
-        className="text-content-login"
-      >
-        <Form.Control type="email" placeholder="name@example.com" />
-      </FloatingLabel>
-      <FloatingLabel controlId="floatingPassword" label="Password" className="text-content-login" >
-        <Form.Control type="password" placeholder="Password"  />
-      </FloatingLabel>
+      
+      
       <Form>
       <Row>
-
       <Form.Group as={Col} controlId="formGridState">
-      
-      <Form.Select defaultValue="Choose...">
-      <option disabled>Choose...</option>
-      {counties.map((county, index) => (
-        <option key={index}>{county}</option>
-      ))}
+          
+          <Form.Select defaultValue="Choose...">
+            <option>14</option>
+            <option>15</option>
+            <option>16</option>
+            <option>17</option>
+            <option>18+</option>
+          </Form.Select>
+          <Form.Label className="text-content-login">Age</Form.Label>
+        </Form.Group>
 
-    </Form.Select>
-    <Form.Label className="text-content-login">County</Form.Label>
-    </Form.Group>
     
          
     
         <Col>
-          <Form.Control placeholder="Name Organisation" />
+          <Form.Control placeholder="Event Name:" />
         </Col>
         <div style={formStyle}>  
         <div style={{ width: "max-content",height:"100px", padding: "10px",borderbottom:"30px"}}>
       <form>
-      <label className="text-content-login">Name:</label>
+      <label className="text-content-login">Description(What the volunteering opportunity is about,contact details,forms for registeering):</label>
       <textarea style={{ width: "100%",height:"100px"}}>
         
         </textarea>
@@ -90,8 +75,8 @@ const counties = [
       <Button type="submit">Submit</Button>
       </Link>
     </Form>
-    
-
+      
+     
       <div className="chenar">
       
       <Stack direction="horizontal" gap={1}>
@@ -102,7 +87,6 @@ const counties = [
       <Button class="butonlogin">Back home</Button>
       </Link>
 
-
     </div>
     <div class="header-titlu-poza">
     <div className="p-2">ImpactHUB</div> 
@@ -110,7 +94,7 @@ const counties = [
 </div>
       </Stack>
         </div>
-       
+
     </div>
     
   );

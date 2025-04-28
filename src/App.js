@@ -7,7 +7,9 @@ import Home from "./Home.jsx";
 import PageTwo from "./PageTwo.jsx";
 import RegisterVol from "./RegisterVolunteers.jsx";
 import RegisterOrg from "./RegisterOrganisations.jsx";
-
+import CreateVol from "./CreateVol";
+import CreateVolForm from "./CreateVolForm.jsx";
+import MainPage from "./Main-Page.jsx";
 function App() {
   return (
     <div className="App">
@@ -42,6 +44,9 @@ function App() {
         <Route path="/pagetwo" element={<PageTwo />} />
         <Route path="/registervol" element={<RegisterVol />} />
         <Route path="/registerorg" element={<RegisterOrg />} />
+        <Route path="/createvol" element={<CreateVol />} />
+        <Route path="/createvolform" element={<CreateVolForm />} />
+        <Route path="/mainpage" element={<MainPage />} />
       </Routes>
     </BrowserRouter>
     

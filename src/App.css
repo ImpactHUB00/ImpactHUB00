@@ -63,7 +63,7 @@
 .text-content-title-login{
   font-size: 30px;
   color: #BD615B;
-  border-bottom: 30px solid #FFF1E5;
+  border-bottom: 25px solid #FFF1E5;
  
 }
 .text-content{
@@ -78,7 +78,7 @@
   
 }
 .image-text-container-img {
-  max-width: 70%; 
+  max-width: 40%; 
     height: auto;
     margin-left: 100px;
 }
