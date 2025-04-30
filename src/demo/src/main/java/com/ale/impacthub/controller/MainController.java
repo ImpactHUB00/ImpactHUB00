@@ -4,13 +4,11 @@ import com.ale.impacthub.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 
 @Controller
 public class MainController {
@@ -40,11 +38,22 @@ public class MainController {
         return OrganisationsRepository.findAll();
     }
 
-    @GetMapping(path="/allmainpage")
-    public @ResponseBody Iterable<mainpage> getAllmainpage() {
-        int mainpage;
-        return Iterable<mainpage> result <= (Iterable<mainpage>) mainpageRepository.findAll();
+    @RestController
+@RequestMapping("/api")
+public class MainpageController {
+
+    private final mainpageRepository mainpageRepository;
+
+    @Autowired
+    public MainpageController(mainpageRepository mainpageRepository) {
+        this.mainpageRepository = mainpageRepository;
     }
+
+    @GetMapping("/allmainpage")
+    public ResponseEntity<Iterable<Organisations>> getAllMainpages() {
+        return ResponseEntity.ok(OrganisationsRepository.findAll());
+    }
+}
 
     
 
@@ -66,14 +75,22 @@ public class MainController {
         return result == 1 ? HttpStatus.OK : HttpStatus.BAD_REQUEST;
     }
 
-    @DeleteMapping(path="/allmainpage/{name_event}")
-    @Transactional
-    public @ResponseBody HttpStatus deleteByname_event(@PathVariable("name_event") Long name_event) {
-
-        long result = mainpageRepository.deleteByname_event(name_event);
-
-        return (result == 1 &&  Volunteer== 1) ? HttpStatus.OK : HttpStatus.BAD_REQUEST;
+    @DeleteMapping("/allmainpage/{name_event}")
+@Transactional
+public ResponseEntity<String> deleteByNameEvent(@PathVariable("name_event") String name_event) {
+    try {
+        long deletedCount = mainpageRepository.deleteByname_event(name_event);
+        
+        if (deletedCount > 0) {
+            return ResponseEntity.ok("Deleted " + deletedCount + " record(s)");
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+               .body("No records found with name_event: " + name_event);
+    } catch (Exception e) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+               .body("Error deleting record: " + e.getMessage());
     }
+}
 
 
     // Create entries

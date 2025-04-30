@@ -15,5 +15,7 @@
             "password": "impacthub2025",
             "connectionTimeout": 30
         }
-    ]
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.import.gradle.home": "GRADLE_HOME"
 }

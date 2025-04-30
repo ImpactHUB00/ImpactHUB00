@@ -10,7 +10,8 @@ public class mainpage{
     @Column(name="id_org")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_org;
-
+    @Column(name="id_event")
+    private Long id_event;
     @Column(name="description")
     private String description;
 
@@ -26,6 +27,13 @@ public class mainpage{
 
     public void setid_vol(Long id_vol) {
         this.id_vol= id_vol;
+    }
+    public Long getid_event() {
+        return id_event;
+    }
+
+    public void setid_event(Long id_event) {
+        this.id_event= id_event;
     }
 
     public Long getid_org() {

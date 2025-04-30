@@ -7,11 +7,11 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface mainpageRepository extends CrudRepository<Organisations, Long> {
+public interface mainpageRepository extends CrudRepository<mainpage, Long> {
 
-   Organisations findByname_event(String name_event);
+   mainpage findByname_event(String name_event);
 
-   long deleteByname_event(Long name_event);
+   long deleteByname_event(String name_event);
 
-   void save(mainpage event);
+   <S extends mainpage> S save(S id_event);
 }
