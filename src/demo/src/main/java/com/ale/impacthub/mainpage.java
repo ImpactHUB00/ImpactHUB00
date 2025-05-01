@@ -12,8 +12,12 @@ public class mainpage{
     private Long id_org;
     @Column(name="id_event")
     private Long id_event;
+
     @Column(name="description")
     private String description;
+
+    @Column(name="organisation_name")
+    private String organisation_name;
 
     @Column(name="name_event")
     private String name_event;
@@ -24,9 +28,11 @@ public class mainpage{
     public Long getid_vol() {
         return id_vol;
     }
-
-    public void setid_vol(Long id_vol) {
-        this.id_vol= id_vol;
+public String getorganisation_name() {
+        return organisation_name;
+    }
+    public void setorganisation_name(String organisation_name) {
+        this.organisation_name= organisation_name;
     }
     public Long getid_event() {
         return id_event;
