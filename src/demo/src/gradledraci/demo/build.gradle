@@ -1,0 +1,83 @@
+plugins {
+id 'java'
+id 'org.springframework.boot' version '3.4.5'
+id 'io.spring.dependency-management' version '1.1.7'
+}
+group = 'com.amalia.dreamcar'
+version = '0.0.1-SNAPSHOT'
+
+java {
+toolchain {
+languageVersion = JavaLanguageVersion.of(21)
+}
+}
+
+configurations {
+compileOnly {
+extendsFrom annotationProcessor
+}
+}
+
+repositories {
+mavenCentral()
+}
+
+dependencies {
+implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+implementation 'org.springframework.boot:spring-boot-starter-web'
+implementation 'org.springframework.boot:spring-boot-starter-webflux'
+developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
+compileOnly 'org.projectlombok:lombok'
+developmentOnly 'org.springframework.boot:spring-boot-devtools'
+annotationProcessor 'org.projectlombok:lombok'
+testImplementation 'org.springframework.boot:spring-boot-starter-test'
+testImplementation 'io.projectreactor:reactor-test'
+testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+testImplementation 'com.h2database:h2'
+// Spring Boot Starter (core Spring Boot functionality)
+implementation 'org.springframework.boot:spring-boot-starter'
+
+// Spring Web MVC (for controllers)
+implementation 'org.springframework.boot:spring-boot-starter-web'
+
+// Spring Data JPA (for repositories)
+implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+// Database driver (use the one matching your database)
+// For PostgreSQL:
+implementation 'org.postgresql:postgresql'
+// For MySQL:
+// implementation 'mysql:mysql-connector-java'
+// For H2 (in-memory database for development):
+// implementation 'com.h2database:h2'
+
+// Lombok (optional but recommended for reducing boilerplate code)
+compileOnly 'org.projectlombok:lombok'
+annotationProcessor 'org.projectlombok:lombok'
+
+// Validation (for @Valid annotations)
+implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+// Testing
+testImplementation 'org.springframework.boot:spring-boot-starter-test'
+testImplementation 'org.springframework.boot:spring-boot-starter-test'
+testImplementation 'org.junit.jupiter:junit-jupiter-api'
+testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+bootJar {
+enabled = false
+}
+jar{
+enabled=true
+}
+tasks.named('test') {
+useJUnitPlatform()
+}
+sourceSets {
+main {
+java {
+srcDirs = ['src/main/java']
+}
+}
+}
+ 
