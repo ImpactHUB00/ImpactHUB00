@@ -1,82 +1,97 @@
-import {Component} from "react";
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import forms from './forms.css';
+import React, { useState } from 'react';
+import { Button, Modal, Form } from 'react-bootstrap';
 
+export default function CreateForm(props) {
+    const [formData, setFormData] = useState(() => {
+        const initial = {};
+        props.entries.forEach((entry) => {
+            initial[entry] = '';
+        });
+        return initial;
+    });
 
-class CreateForm extends Component {
-    state = {
-        show: false,
-        entries: this.props.entries,
-        bAdmin: this.props.bAdmin
+    const [showModal, setShowModal] = useState(false);
+
+    const handleShow = () => setShowModal(true);
+    const handleClose = () => {
+        setShowModal(false);
+        // Reset form
+        const reset = {};
+        props.entries.forEach((entry) => {
+            reset[entry] = '';
+        });
+        setFormData(reset);
     };
 
-    handleClose = () => this.setState({show: false});
-    handleShow = () => this.setState({show: true});
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value
+        }));
+    };
 
-    handleSave = async (event) => {
-        let payload = this.props.entries.reduce(
-            function (obj, currentProp) {
-                obj[document.getElementById(currentProp).id] = document.getElementById(currentProp).value;
-                return obj;
-            }, {});
-
-        if (this.props.requestPath === "allVolunteers") {
-            Object.assign(payload, {
-                
-                id_org: this.props.id_org
-            });
-        }
-
-        
-
+    const handleSave = async () => {
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
+            body: JSON.stringify(formData)
         };
-        const response = await fetch(`http://localhost:8080/${this.props.requestPath}`, requestOptions);
-        const data = await response.json();
 
-        if (data === "CREATED") {
-            this.props.rerenderParentCallback();
+        try {
+            const response = await fetch(`http://localhost:8080/${props.requestPath}`, requestOptions);
+
+            if (!response.ok) {
+                console.error('Failed to create event:', response.status, response.statusText);
+                return;
+            }
+
+            const data = await response.json();
+
+            if (data.message === "CREATED" || response.status === 201) {
+                props.rerenderParentCallback();
+            }
+
+            handleClose();
+        } catch (error) {
+            console.error('Error creating event:', error);
         }
+    };
 
-        this.handleClose();
-    }
-
-    render() {
-        return (
-            <>
-            <Button variant="outline-primary" onClick={this.handleShow}>
-                Inserare
+    return (
+        <>
+            <Button variant="primary" onClick={handleShow}>
+                Create New
             </Button>
-            <Modal show={this.state.show} onHide={this.handleClose}>
+
+            <Modal show={showModal} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Inserare</Modal.Title>
+                    <Modal.Title>Create New Entry</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <form id="createForm">
-                        {this.props.entries.map((entry) => (
-                            <div key={entry}>
-                                <label className="label">{entry.split(/(?=[A-Z])/).join(" ").toLowerCase()}</label>
-                                <input id={entry} className="input"/>
-                            </div>
+                    <Form>
+                        {props.entries.map((entry) => (
+                            <Form.Group className="mb-3" key={entry}>
+                                <Form.Label>{entry}</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    name={entry}
+                                    value={formData[entry]}
+                                    onChange={handleChange}
+                                />
+                            </Form.Group>
                         ))}
-
-                    </form>
+                    </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button size="sm" variant="outline-secondary" onClick={this.handleClose}>
-                        Inchide
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
                     </Button>
-                    <Button size="sm" variant="outline-primary" onClick={this.handleSave}>
-                        Salveaza
+                    <Button variant="primary" onClick={handleSave}>
+                        Save Changes
                     </Button>
                 </Modal.Footer>
             </Modal>
-                </> );
-    }
+        </>
+    );
 }
-
-export default CreateForm;

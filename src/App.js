@@ -10,6 +10,7 @@ import RegisterOrg from "./RegisterOrganisations.jsx";
 import CreateVol from "./CreateVol.jsx";
 import CreateVolForm from "./CreateVolForm.jsx";
 import MainPage from "./Main-Page.jsx";
+import CreateForm1 from "./CreateForm.jsx";
 function App() {
   return (
     <div className="App">
@@ -47,6 +48,7 @@ function App() {
         <Route path="/createvol" element={<CreateVol />} />
         <Route path="/createvolform" element={<CreateVolForm />} />
         <Route path="/mainpage" element={<MainPage />} />
+        <Route path="/createform1" element={<CreateForm1 />} />
       </Routes>
     </BrowserRouter>
     
