@@ -49,8 +49,8 @@ public class MainpageController {
         this.mainpageRepository = mainpageRepository;
     }
 
-    @GetMapping("/allmainpage")
-    public ResponseEntity<Iterable<Organisations>> getAllMainpages() {
+    @GetMapping("/allEvents")
+    public ResponseEntity<Iterable<Organisations>> getAllEvents() {
         return ResponseEntity.ok(OrganisationsRepository.findAll());
     }
 }
@@ -75,7 +75,7 @@ public class MainpageController {
         return result == 1 ? HttpStatus.OK : HttpStatus.BAD_REQUEST;
     }
 
-    @DeleteMapping("/allmainpage/{name_event}")
+    @DeleteMapping("/allEvents/{name_event}")
 @Transactional
 public ResponseEntity<String> deleteByNameEvent(@PathVariable("name_event") String name_event) {
     try {
