@@ -7,7 +7,7 @@ import Home from "./Home.jsx";
 import PageTwo from "./PageTwo.jsx";
 import RegisterVol from "./RegisterVolunteers.jsx";
 import RegisterOrg from "./RegisterOrganisations.jsx";
-import CreateVol from "./CreateVol";
+import CreateVol from "./CreateVol.jsx";
 import CreateVolForm from "./CreateVolForm.jsx";
 import MainPage from "./Main-Page.jsx";
 function App() {
