@@ -1,0 +1,4 @@
+rootProject.name = 'demo'
+
+include 'product-service'
+project(':product-service').projectDir = file('microservices/product-service')
